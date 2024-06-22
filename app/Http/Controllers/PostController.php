@@ -35,7 +35,7 @@ class PostController extends Controller
         ]);
     
         Post::create($validatedData);
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('success', 'Post Publicado!');
     }
 
     /**
@@ -74,7 +74,7 @@ class PostController extends Controller
         ]);
         $post = Post::find($id);
         $post->update($validatedData);
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('success', 'Post Editado!');;
     }
 
     /**
@@ -85,6 +85,6 @@ class PostController extends Controller
     $post = Post::find($id);
    // echo $post;
     $post->delete();
-    return redirect()->route('posts.index');
+    return redirect()->route('posts.index')->with('success', 'Post Eliminado!');
 }
 }

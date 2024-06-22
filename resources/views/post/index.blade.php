@@ -3,6 +3,13 @@
 @section('titulo','home')
 @section('content')
     <a class="btn btn-success" href="{{ route('posts.create') }}">Crear nuevo post</a>
+    
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+    
     <table class="table">
   <thead>
     <tr>
